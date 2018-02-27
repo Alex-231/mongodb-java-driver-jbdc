@@ -19,8 +19,18 @@ OR, the username and password can be passed as parameters to the connection.
 DriverManager.getConnection("mongodb://host:port/database", "username", "password"); 
 ```
 
+OR as Properties.
+```java
+Properties properties = new Properties();
+properties.put("username", username)
+properties.put("password", password)
+DriverManager.getConnection("mongodb://host:port/database", properties); 
+```
+
 In both cases, jdbc: can be included.
 
 ```java
 "jdbc:mongodb://username:password@host:port/database"
 ```
+
+But don't include the username & password in both the URI and the properties. Pick one :)
