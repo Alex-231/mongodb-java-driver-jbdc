@@ -9,6 +9,9 @@ import java.sql.SQLFeatureNotSupportedException;
 import java.util.Properties;
 import java.util.logging.Logger;
 
+import com.mongodb.MongoOptions;
+import java.util.ArrayList;
+
 public class Driver implements java.sql.Driver {
     
     static Driver singleton;
@@ -37,34 +40,38 @@ public class Driver implements java.sql.Driver {
 
                 return new Connection(service);
             } catch (UnknownHostException exception) {
-                throw new SQLException("Unknown Host: " + exception.getMessage(), exception);
+                throw new SQLException("Unknown Host: " 
+                        + exception.getMessage(), exception);
             }
         }
         return null;
     }
 
     public boolean acceptsURL(String url) throws SQLException {
-        return url != null && url.startsWith("mongodb:") || url.startsWith("jdbc:mongodb:");
+        return url != null && 
+                url.startsWith("mongodb:") || url.startsWith("jdbc:mongodb:");
     }
 
     public DriverPropertyInfo[] getPropertyInfo(String url, Properties info) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return MongoOptionsHelper.getDriverPropertyInfos();
     }
 
     public int getMajorVersion() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return Integer.parseInt(getClass().getPackage()
+                .getImplementationVersion().substring(0, 1));
     }
 
     public int getMinorVersion() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return Integer.parseInt(getClass().getPackage()
+                .getImplementationVersion().substring(2, 3));
     }
 
     public boolean jdbcCompliant() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return true;
     }
 
     public Logger getParentLogger() throws SQLFeatureNotSupportedException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
     }
     
 }
