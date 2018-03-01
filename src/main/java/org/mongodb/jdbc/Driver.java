@@ -1,5 +1,5 @@
 
-package org.mongodb;
+package org.mongodb.jdbc;
 
 import java.net.UnknownHostException;
 import java.sql.DriverManager;
@@ -53,7 +53,7 @@ public class Driver implements java.sql.Driver {
     }
 
     public DriverPropertyInfo[] getPropertyInfo(String url, Properties info) throws SQLException {
-        return MongoOptionsHelper.getDriverPropertyInfos();
+        return MongoClientOptionsHelper.getDriverPropertyInfos();
     }
 
     public int getMajorVersion() {

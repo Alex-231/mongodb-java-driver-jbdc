@@ -1,4 +1,4 @@
-package org.mongodb;
+package org.mongodb.jdbc;
 
 import java.net.UnknownHostException;
 import java.sql.Array;
