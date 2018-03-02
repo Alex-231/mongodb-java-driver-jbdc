@@ -4,18 +4,22 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <configuration>
-            <archive>                   
-                <manifest>
-                    <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                    <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                </manifest>
-            </archive>
-        </configuration>
-    </plugin>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>                   
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <groupId>org.mongodb</groupId>
     <artifactId>mongo-java-driver-jbdc</artifactId>
@@ -35,7 +39,7 @@
         <dependency>
             <groupId>org.mongodb</groupId>
             <artifactId>mongo-java-driver</artifactId>
-            <version>3.4.2</version>
+            <version>3.6.3</version>
         </dependency>
     </dependencies>
 
