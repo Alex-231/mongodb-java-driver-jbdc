@@ -1,6 +1,7 @@
 
-package org.mongodb.jdbc;
+package com.mongodb.jdbc;
 
+import com.mongodb.util.MongoClientOptionsHelper;
 import java.net.UnknownHostException;
 import java.sql.DriverManager;
 import java.sql.DriverPropertyInfo;
@@ -9,8 +10,6 @@ import java.sql.SQLFeatureNotSupportedException;
 import java.util.Properties;
 import java.util.logging.Logger;
 
-import com.mongodb.MongoOptions;
-import java.util.ArrayList;
 
 public class Driver implements java.sql.Driver {
     

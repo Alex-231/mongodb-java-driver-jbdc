@@ -1,5 +1,5 @@
 
-package org.mongodb.jdbc;
+package com.mongodb.util;
 
 import com.mongodb.MongoClientOptions;
 import java.lang.reflect.Method;

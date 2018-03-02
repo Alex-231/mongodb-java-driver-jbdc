@@ -1,4 +1,4 @@
-package org.mongodb.jdbc;
+package com.mongodb.jdbc;
 
 import java.net.UnknownHostException;
 import java.sql.Array;
@@ -25,6 +25,7 @@ import java.util.concurrent.Executor;
  */
 public class Connection implements java.sql.Connection {
 
+    private boolean isClosed;
     private String catalog;
     final Service service;
     
@@ -69,7 +70,7 @@ public class Connection implements java.sql.Connection {
     }
 
     public boolean isClosed() throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return isClosed;
     }
 
     public DatabaseMetaData getMetaData() throws SQLException {
@@ -246,6 +247,17 @@ public class Connection implements java.sql.Connection {
 
     public boolean isWrapperFor(Class<?> iface) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
+    
+    
+    
+    public boolean checkConnectionOpen() throws SQLException
+    {
+        if(isClosed)
+            throw new SQLException("Connection has been close.");
+        return !isClosed;
     }
     
 }
